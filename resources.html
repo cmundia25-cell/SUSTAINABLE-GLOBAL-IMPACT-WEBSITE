@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources Centre - SGI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+
+<nav class="bg-green-800 text-white p-4 flex justify-between">
+  <h1 class="font-bold">SGI - Resources Centre</h1>
+  <a href="index.html" class="bg-white text-green-800 px-3 py-1 rounded">Home</a>
+</nav>
+
+<div class="p-6 md:p-10">
+  <h2 class="text-2xl font-bold">Resources Centre</h2>
+  <p class="text-gray-600">Strategic Plans, Policies, Reports, Training Manuals - View or Download</p>
+
+  <!-- FILTER BUTTONS -->
+  <div class="mt-6 flex flex-wrap gap-2" id="filters">
+    <button onclick="filterDocs('all')" class="filter-btn bg-green-800 text-white px-4 py-2 rounded">All</button>
+    <button onclick="filterDocs('Strategic Plans')" class="filter-btn bg-white border px-4 py-2 rounded">Strategic Plans</button>
+    <button onclick="filterDocs('Policies')" class="filter-btn bg-white border px-4 py-2 rounded">Policies</button>
+    <button onclick="filterDocs('Policy Briefs')" class="filter-btn bg-white border px-4 py-2 rounded">Policy Briefs</button>
+    <button onclick="filterDocs('Reports')" class="filter-btn bg-white border px-4 py-2 rounded">Programme Reports</button>
+    <button onclick="filterDocs('Training Manuals')" class="filter-btn bg-white border px-4 py-2 rounded">Training Manuals</button>
+  </div>
+
+  <!-- SEARCH -->
+  <input type="text" id="search" placeholder="Search document..." class="mt-4 w-full md:w-1/3 border p-2 rounded" onkeyup="searchDocs()">
+
+  <!-- DOCUMENT LIST -->
+  <div class="mt-6 grid gap-4" id="docList">
+    <!-- Example docs - replace file names with your real PDFs -->
+    <div class="doc bg-white p-4 shadow rounded flex justify-between" data-category="Policies">
+      <div><i class="fa-solid fa-file-pdf text-red-600"></i> <b>HR Policy - New</b><br><span class="text - sm text-gray-500">policies| 2024<span></div>
+      <div class="space-x-2"><a href="files/HR-policy.pdf" download class="bg-green-600 text-white px-3 py-1 rounded">Download</a></div> 
+    </div>
+    <div class="doc bg-white p-4 shadow rounded flex justify-between" data-category="Policies">
+      <div><i class="fa-solid fa-file-pdf text-red-600"></i> <b>Data Protection Policy</b><br><span class="text-sm text-gray-500">Policies | 2024</span></div>
+      <div class="space-x-2"><a href="files/data-protection.pdf" target="_blank" class="bg-blue-600 text-white px-3 py-1 rounded">View</a><a href="files/data-protection.pdf" download class="bg-green-600 text-white px-3 py-1 rounded">Download</a></div>
+    </div>
+    <div class="doc bg-white p-4 shadow rounded flex justify-between" data-category="Reports">
+      <div><i class="fa-solid fa-file-pdf text-red-600"></i> <b>Kayanet Farm Impact Report - 600 Farmers</b><br><span class="text-sm text-gray-500">Reports | Impact</span></div>
+      <div class="space-x-2"><a href="files/kayanet-report.pdf" target="_blank" class="bg-blue-600 text-white px-3 py-1 rounded">View</a><a href="files/kayanet-report.pdf" download class="bg-green-600 text-white px-3 py-1 rounded">Download</a></div>
+    </div>
+    <div class="doc bg-white p-4 shadow rounded flex justify-between" data-category="Training Manuals">
+      <div><i class="fa-solid fa-file-pdf text-red-600"></i> <b>Agroecology Training Manual</b><br><span class="text-sm text-gray-500">Training Manuals | Upload/Download/View</span></div>
+      <div class="space-x-2"><a href="files/training-manual.pdf" target="_blank" class="bg-blue-600 text-white px-3 py-1 rounded">View</a><a href="files/training-manual.pdf" download class="bg-green-600 text-white px-3 py-1 rounded">Download</a></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function filterDocs(cat){
+  document.querySelectorAll('.doc').forEach(d=>{
+    d.style.display = (cat==='all' || d.dataset.category===cat) ? 'flex' : 'none';
+  });
+}
+function searchDocs(){
+  let q = document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('.doc').forEach(d=>{
+    d.style.display = d.innerText.toLowerCase().includes(q) ? 'flex' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate - SGI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+<nav class="bg-green-800 text-white p-4 flex justify-between">
+  <h1 class="font-bold">SGI - Donate</h1>
+  <a href="index.html" class="bg-white text-green-800 px-3 py-1 rounded">Home</a>
+</nav>
+
+<div class="p-10 max-w-2xl mx-auto">
+  <div class="bg-white p-8 shadow rounded">
+    <h2 class="text-2xl font-bold text-green-800">Support SGI via M-Pesa</h2>
+    <p class="mt-2 text-gray-600">Your donation helps 600+ farmers at Kayanet Farm</p>
+    
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mt-6">
+      <p><b>PayBill Number:</b> <span id="paybill">522522</span></p>
+      <p><b>Account Number:</b> <span id="account">1234567</span></p>
+      <p class="text-xs text-gray-500 mt-2">* Ask Finance team to confirm numbers before publishing. Do NOT hardcode real numbers in GitHub.</p>
+    </div>
+
+    <ol class="mt-6 list-decimal ml-6 space-y-2 text-sm">
+      <li>Go to M-Pesa > Lipa na M-Pesa > PayBill</li>
+      <li>Enter Business No: <b id="paybill2">522522</b></li>
+      <li>Enter Account: <b>SGI-DONATE</b></li>
+      <li>Enter Amount</li>
+      <li>Enter PIN > Send > You get SMS</li>
+    </ol>
+
+    <div class="mt-8">
+      <h3 class="font-bold">STK Push (Automatic)</h3>
+      <input id="phone" placeholder="2547XXXXXXXX" class="w-full border p-2 rounded mt-2">
+      <input id="amount" placeholder="Amount KES" class="w-full border p-2 rounded mt-2">
+      <button onclick="alert('For STK Push, you need Daraja API - ask me later for code. For now use PayBill steps above.')" class="w-full bg-green-700 text-white p-2 rounded mt-3">Donate Now</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
